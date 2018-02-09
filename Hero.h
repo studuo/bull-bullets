@@ -1,9 +1,13 @@
+#ifndef DEF_HERO
+#define DEF_HERO
+
 #include <Weapon.h>
 #include <Armor.h>
 #include <Inventory.h>
 #include <Stats.h>
 #include <Loot.h>
 #include <Object.h>
+#include <Coordinates.h>
 
 class Character {
     // Attributes
@@ -12,6 +16,10 @@ class Character {
     int healthPoints;
     int manaPoints;
     int stamina;
+    int defense;
+    int maxHealthPoints;
+    int maxManaPoints;
+    int maxStamina;
     Stats stats;
     Weapon weapons;
     Armor armors;
@@ -23,7 +31,11 @@ class Character {
     
     void heal() {
         // Self-Heal
-    }    
+    }
+    
+    void getDefense() {
+        // Pure defense + armor defense
+    }
 }; 
 
 class Hero : public Character {
@@ -31,6 +43,7 @@ class Hero : public Character {
     private:
     int dollars;
     Inventory inventory;
+    Coordinates coordinates;
     
     public:
     void openInventory() {
@@ -47,3 +60,5 @@ class Enemy : public Character {
     private:
     Loot loot;
 };
+
+#endif

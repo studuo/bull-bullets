@@ -1,10 +1,10 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <Hero.h>
+using namespace std;
 
 int main(int argc, char** argv)
 {
-	cout >> 'TEST';
     /* Initialisation simple */
     if (SDL_Init(SDL_INIT_VIDEO) != 0 )
     {
@@ -21,14 +21,7 @@ int main(int argc, char** argv)
                                                                   480,
                                                                   SDL_WINDOW_SHOWN);
 
-        if( pWindow )
-        {
-            SDL_Delay(3000); /* Attendre trois secondes, que l'utilisateur voie la fenêtre */
-
-            SDL_DestroyWindow(pWindow);
-        }
-        else
-        {
+        if(!(pWindow))
             fprintf(stderr,"Erreur de création de la fenêtre: %s\n",SDL_GetError());
         }
     }
